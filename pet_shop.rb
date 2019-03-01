@@ -10,7 +10,7 @@ end
 
 #Third and fourth TDD exercise
 def add_or_remove_cash(pet_shop, amount)
-   pet_shop[:admin][:total_cash] = pet_shop[:admin][:total_cash] + amount
+  pet_shop[:admin][:total_cash] += amount
 end
 
 #Fifth TDD exercise
@@ -20,10 +20,20 @@ end
 
 #Sixth TDD exercise
 def increase_pets_sold(pet_shop, new_sales)
-  pet_shop[:admin][:pets_sold] = pet_shop[:admin][:pets_sold] + new_sales
+  pet_shop[:admin][:pets_sold] += new_sales
   return pet_shop[:admin][:pets_sold]
 end
 
 def stock_count(pet_shop)
   pet_shop[:pets].length
+end
+
+def pets_by_breed(pet_shop, breed)
+  count = []
+  for pet in pet_shop[:pets]
+    if pet[:breed] == breed
+      count << pet
+    end
+  end
+  return count
 end
